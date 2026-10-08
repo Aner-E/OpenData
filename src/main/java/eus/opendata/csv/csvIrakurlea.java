@@ -11,21 +11,10 @@ import java.util.List;
 import main.java.eus.opendata.modeloa.EgunekoDatu;
 import main.java.eus.opendata.modeloa.Neurketa;
 
-
 public class CsvIrakurlea {
 
-    /**
-     * URL del fichero CSV de calidad del aire.
-     */
-    private static final String URL_CSV =
-            "https://raw.githubusercontent.com/Aner-E/OpenData/refs/heads/main/201410-10-calidad-aire-diario-csv.csv";
+    private static final String URL_CSV = "https://raw.githubusercontent.com/Aner-E/OpenData/refs/heads/main/201410-10-calidad-aire-diario-csv.csv";
 
-    /**
-     * Lee el fichero CSV y convierte sus datos en objetos Neurketa.
-     *
-     * @return lista de mediciones obtenidas del CSV
-     * @throws IOException si ocurre algún error al leer el fichero
-     */
     public List<Neurketa> irakurri() throws IOException {
 
         List<Neurketa> neurketak = new ArrayList<>();
@@ -40,7 +29,6 @@ public class CsvIrakurlea {
             irakurlea = new BufferedReader(
                     new InputStreamReader(url.openStream()));
 
-            // Saltamos la primera línea porque contiene las cabeceras.
             irakurlea.readLine();
 
             String lerroa;
@@ -69,9 +57,7 @@ public class CsvIrakurlea {
                         magnitudea,
                         puntuMuestreo,
                         urtea,
-                        hilabetea
-                );
-
+                        hilabetea);
 
                 int zutabea = 7;
 
@@ -86,12 +72,10 @@ public class CsvIrakurlea {
 
                     if (!balioa.isBlank()) {
 
-                        EgunekoDatu datua =
-                                new EgunekoDatu(
-                                        eguna,
-                                        balioa,
-                                        baliozkotzea
-                                );
+                        EgunekoDatu datua = new EgunekoDatu(
+                                eguna,
+                                balioa,
+                                baliozkotzea);
 
                         neurketa.gehituDatu(datua);
                     }
