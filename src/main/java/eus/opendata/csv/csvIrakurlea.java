@@ -8,6 +8,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.java.eus.opendata.modeloa.EgunekoDatu;
+import main.java.eus.opendata.modeloa.Neurketa;
+
+
 public class CsvIrakurlea {
 
     /**
