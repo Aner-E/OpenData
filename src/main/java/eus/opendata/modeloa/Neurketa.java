@@ -32,6 +32,7 @@ public class Neurketa {
     public String getProbintzia() {
         return Probintzia;
     }
+    
     public void setProbintzia(String Probintzia){
         this.Probintzia = Probintzia;
     }
