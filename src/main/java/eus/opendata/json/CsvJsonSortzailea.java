@@ -109,7 +109,6 @@ public class CsvJsonSortzailea {
         System.out.println("JSON fitxategia sortuta: " + irteera.toAbsolutePath());
     }
 
-    // JSON string bat sortzen du karaktere bereziak escapatuz
     private String testua(String s) {
         StringBuilder sb = new StringBuilder("\"");
         for (char c : s.trim().toCharArray()) {
@@ -128,9 +127,5 @@ public class CsvJsonSortzailea {
             }
         }
         return sb.append("\"").toString();
-    }
-
-    public static void main(String[] args) throws IOException {
-        new CsvJsonSortzailea().sortu();
     }
 }
