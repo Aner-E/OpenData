@@ -1,4 +1,4 @@
-package main.java.eus.opendata.xml;
+package paagbi.xml;
 
 public class xmlKudeatzailea {
     
