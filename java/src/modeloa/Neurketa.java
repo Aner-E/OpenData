@@ -1,5 +1,4 @@
-package main.java.eus.opendata.modeloa;
-
+package java.src.modeloa;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package main.java.eus.opendata.modeloa;
+package java.src.modeloa;
 
 public class EgunekoDatu {
     private int eguna;
