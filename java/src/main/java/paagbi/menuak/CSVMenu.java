@@ -9,11 +9,9 @@ public class CSVMenu {
 
     private final Scanner sn;
     private final List<Neurketa> neurketak;
-
     /**
      * CSV menua sortzen du, irakurritako neurketekin.
      *
-     * @param neurketak CSV fitxategitik irakurritako neurketak
      */
     public CSVMenu(List<Neurketa> neurketak) {
         this.sn = new Scanner(System.in);

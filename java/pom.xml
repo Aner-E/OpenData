@@ -20,11 +20,19 @@
 
   <dependencies>
         <!-- Source: https://mvnrepository.com/artifact/jakarta.json/jakarta.json-api -->
-        <dependency>
-            <groupId>jakarta.xml.bind</groupId>
-            <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>4.0.2</version>
-        </dependency>
+    <!-- Jakarta XML Binding API -->
+    <dependency>
+        <groupId>jakarta.xml.bind</groupId>
+        <artifactId>jakarta.xml.bind-api</artifactId>
+        <version>4.0.2</version>
+    </dependency>
+
+    <!-- JAXB implementation -->
+    <dependency>
+        <groupId>org.glassfish.jaxb</groupId>
+        <artifactId>jaxb-runtime</artifactId>
+        <version>4.0.5</version>
+    </dependency>
     <!-- Source: https://mvnrepository.com/artifact/org.eclipse.parsson/parsson -->
     <dependency>
         <groupId>org.eclipse.parsson</groupId>

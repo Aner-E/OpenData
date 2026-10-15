@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * XML fitxategiak irakurri eta idazteko metodoak eskaintzen ditu.
  */
-public class xmlKudeatzailea {
+public class XmlKudeatzailea {
 
     /**
      * Neurketen zerrenda XML fitxategi batean gordetzen du.
