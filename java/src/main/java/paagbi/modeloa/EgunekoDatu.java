@@ -1,4 +1,4 @@
-package java.src.modeloa;
+package paagbi.modeloa;
 
 public class EgunekoDatu {
     private int eguna;

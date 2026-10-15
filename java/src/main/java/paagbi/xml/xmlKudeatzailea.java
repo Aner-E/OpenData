@@ -1,7 +1,5 @@
 package paagbi.xml;
 
-import src.modeloa.Neurketa;
-
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
