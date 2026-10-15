@@ -1,11 +1,9 @@
 package paagbi.xml;
 
 import paagbi.modeloa.Neurketa;
-
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
-
 import java.io.File;
 import java.util.List;
 
