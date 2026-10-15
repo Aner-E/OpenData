@@ -45,26 +45,21 @@ public class Main {
 
                     case 1:
                         CSVMenu();
-                        
-
                         break;
 
                     case 2:
                         XMLMenu();
-
+                        break;
                     case 3:
                         JSonMenu();
-
+                        break;
                     case 0:
 
                         System.out.println(
                                 "Programa amaitzen..."
                         );
-
                         break;
-
                     default:
-
                         System.out.println(
                                 "Aukera okerra."
                         );
