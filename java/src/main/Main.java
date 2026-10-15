@@ -1,13 +1,9 @@
-package java.src.main;
-
-import eus.opendata.csv.CsvIrakurlea;
+import csv.CsvIrakurlea;
 import eus.opendata.json.JsonKudeatzailea;
 import eus.opendata.modelo.Neurketa;
 import eus.opendata.xml.XmlKudeatzailea;
 import menuak.CSVMenu;
 import menuak.XMLMenu;
-import menuak.JsonMenu;
-
 import java.util.List;
 import java.util.Scanner;
 

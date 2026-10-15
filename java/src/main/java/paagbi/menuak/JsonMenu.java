@@ -9,6 +9,7 @@ public class JsonMenu {
 
     private final Scanner sn;
     private final List<Neurketa> neurketak;
+
     public JsonMenu(List<Neurketa> neurketak) {
         this.sn = new Scanner(System.in);
         this.neurketak = neurketak;
@@ -138,7 +139,6 @@ public class JsonMenu {
             System.out.println("Urtea zenbaki bat izan behar da.");
         }
     }
-
 
     private void erakutsiNeurketa(Neurketa n) {
 
