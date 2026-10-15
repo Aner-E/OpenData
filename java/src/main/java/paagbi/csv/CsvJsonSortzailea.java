@@ -1,4 +1,4 @@
-package main.java.eus.opendata.json;
+package paagbi.csv;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

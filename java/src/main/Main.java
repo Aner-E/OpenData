@@ -1,4 +1,4 @@
-package eus.opendata;
+package java.src.main;
 
 import eus.opendata.csv.CsvIrakurlea;
 import eus.opendata.json.JsonKudeatzailea;
