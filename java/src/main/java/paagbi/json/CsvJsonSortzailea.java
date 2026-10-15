@@ -24,10 +24,11 @@ public class CsvJsonSortzailea {
 
         Path irteera = Paths.get(JSON_BIDEA);
 
-        try (BufferedReader irakurlea = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
+        try (BufferedReader irakurlea = new BufferedReader(
+                new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
              BufferedWriter idazlea = Files.newBufferedWriter(irteera, StandardCharsets.UTF_8)) {
 
-            irakurlea.readLine(); 
+            irakurlea.readLine(); // goiburua saltatu
 
             idazlea.write("[");
             idazlea.newLine();
