@@ -28,8 +28,7 @@ public class CsvJsonSortzailea {
                 new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
              BufferedWriter idazlea = Files.newBufferedWriter(irteera, StandardCharsets.UTF_8)) {
 
-            irakurlea.readLine(); // goiburua saltatu
-
+            irakurlea.readLine(); 
             idazlea.write("[");
             idazlea.newLine();
 
