@@ -1,4 +1,4 @@
-package java.src.modeloa;
+package paagbi.modeloa;
 import java.util.ArrayList;
 import java.util.List;
 
