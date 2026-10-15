@@ -44,15 +44,15 @@ public class JsonMenu {
 
             switch (aukera) {
                 case 1:
-                    estazioarenAraberaBilatu();
+                    estazioaBilatu();
                     break;
 
                 case 2:
-                    probintziarenAraberaBilatu();
+                    probintziaBilatu();
                     break;
 
                 case 3:
-                    urtearenAraberaBilatu();
+                    urteaBilatu();
                     break;
 
                 case 0:
@@ -69,7 +69,7 @@ public class JsonMenu {
     /**
      * Estazio baten neurketak erakusten ditu.
      */
-    private void estazioarenAraberaBilatu() {
+    private void estazioaBilatu() {
 
         System.out.print("Sartu estazioaren kodea: ");
         String estazioa = sn.nextLine().trim();
@@ -91,7 +91,7 @@ public class JsonMenu {
     /**
      * Probintzia baten neurketak erakusten ditu.
      */
-    private void probintziarenAraberaBilatu() {
+    private void probintziaBilatu() {
 
         System.out.print("Sartu probintziaren kodea: ");
         String probintzia = sn.nextLine().trim();
@@ -113,7 +113,7 @@ public class JsonMenu {
     /**
      * Urte bateko neurketak erakusten ditu.
      */
-    private void urtearenAraberaBilatu() {
+    private void urteaBilatu() {
 
         System.out.print("Sartu urtea: ");
 
