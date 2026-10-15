@@ -4,6 +4,9 @@ import eus.opendata.csv.CsvIrakurlea;
 import eus.opendata.json.JsonKudeatzailea;
 import eus.opendata.modelo.Neurketa;
 import eus.opendata.xml.XmlKudeatzailea;
+import menuak.CSVMenu;
+import menuak.XMLMenu;
+import menuak.JsonMenu;
 
 import java.util.List;
 import java.util.Scanner;
@@ -26,15 +29,11 @@ public class Main {
 
             System.out.println();
             System.out.println("==================================");
-            System.out.println("       AIREAREN KALITATEA");
+            System.out.println("       Datuekin Lan Egitea");
             System.out.println("==================================");
-            System.out.println("1. CSV fitxategia irakurri");
-            System.out.println("2. Datuak JSON formatuan gorde");
-            System.out.println("3. Datuak XML formatuan gorde");
-            System.out.println("4. JSON fitxategia irakurri");
-            System.out.println("5. XML fitxategia irakurri");
-            System.out.println("6. Neurketa kopurua erakutsi");
-            System.out.println("0. Irten");
+            System.out.println("1. CSV Fitxategian Bilatu");
+            System.out.println("2. XML Fitxategian Bilatu");
+            System.out.println("3. JSON Fitxategian Bilatu");
             System.out.println("==================================");
             System.out.print("Aukeratu aukera bat: ");
 
@@ -45,113 +44,16 @@ public class Main {
                 switch (aukera) {
 
                     case 1:
-
-                        neurketak =
-                                csv.irakurri(
-                                        "data/calidad_aire.csv"
-                                );
-
-                        System.out.println(
-                                "CSV fitxategia behar bezala irakurri da."
-                        );
-
-                        System.out.println(
-                                "Neurketa kopurua: "
-                                        + neurketak.size()
-                        );
+                        CSVMenu();
+                        
 
                         break;
 
                     case 2:
-
-                        if (neurketak == null) {
-                            System.out.println(
-                                    "Lehenengo CSV fitxategia irakurri."
-                            );
-                            break;
-                        }
-
-                        json.gorde(
-                                neurketak,
-                                "data/calidad_aire.json"
-                        );
-
-                        System.out.println(
-                                "JSON fitxategia sortu da."
-                        );
-
-                        break;
+                        XMLMenu();
 
                     case 3:
-
-                        if (neurketak == null) {
-                            System.out.println(
-                                    "Lehenengo CSV fitxategia irakurri."
-                            );
-                            break;
-                        }
-
-                        xml.gorde(
-                                neurketak,
-                                "data/calidad_aire.xml"
-                        );
-
-                        System.out.println(
-                                "XML fitxategia sortu da."
-                        );
-
-                        break;
-
-                    case 4:
-
-                        neurketak =
-                                json.irakurri(
-                                        "data/calidad_aire.json"
-                                );
-
-                        System.out.println(
-                                "JSON fitxategia irakurri da."
-                        );
-
-                        System.out.println(
-                                "Neurketa kopurua: "
-                                        + neurketak.size()
-                        );
-
-                        break;
-
-                    case 5:
-
-                        neurketak =
-                                xml.irakurri(
-                                        "data/calidad_aire.xml"
-                                );
-
-                        System.out.println(
-                                "XML fitxategia irakurri da."
-                        );
-
-                        System.out.println(
-                                "Neurketa kopurua: "
-                                        + neurketak.size()
-                        );
-
-                        break;
-
-                    case 6:
-
-                        if (neurketak == null) {
-                            System.out.println(
-                                    "Ez dago daturik kargatuta."
-                            );
-                        } else {
-                            System.out.println(
-                                    "Kargatutako neurketak: "
-                                            + neurketak.size()
-                            );
-                        }
-
-                        break;
+                        JSonMenu();
 
                     case 0:
 
