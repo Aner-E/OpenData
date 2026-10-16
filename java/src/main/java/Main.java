@@ -7,7 +7,7 @@ import paagbi.menuak.CSVMenu;
 import paagbi.menuak.JsonMenu;
 import paagbi.menuak.XMLMenu;
 import paagbi.modeloa.Neurketa;
-import paagbi.xml.XmlKudeatzailea;
+import paagbi.xml.xmlKudeatzailea;
 
 public class Main {
 
@@ -19,7 +19,7 @@ public class Main {
         // Fitxategiak kudeatzeko objektuak sortzen dira.
         CsvIrakurlea csv = new CsvIrakurlea();
         CsvJsonSortzailea jsonSortzailea = new CsvJsonSortzailea();
-        XmlKudeatzailea xml = new XmlKudeatzailea();
+        xmlKudeatzailea xml = new xmlKudeatzailea("datuak/neurketak.xml");
 
         do {
             System.out.println();
@@ -51,12 +51,14 @@ public class Main {
                         break;
                     }
 
+                    // XML fitxategiko neurketak irakurri eta menuari pasatzen zaizkio.
                     case 2: {
                         // XML fitxategiko neurketak irakurri eta menuari pasatzen zaizkio.
-                        List<Neurketa> neurketak = xml.irakurri("calidad-aire.xml");
+                        List<Neurketa> neurketak = xml.irakurri();
                         new XMLMenu(neurketak).erakutsi();
                         break;
                     }
+
                     case 3: {
                         // JSON fitxategia sortzen du.
                         jsonSortzailea.sortu();

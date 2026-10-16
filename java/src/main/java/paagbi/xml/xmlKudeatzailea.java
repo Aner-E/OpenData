@@ -5,67 +5,78 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * XML fitxategiak irakurri eta idazteko metodoak eskaintzen ditu.
  */
-public class XmlKudeatzailea {
+public class xmlKudeatzailea {
+
+    private final String fitxategia;
 
     /**
-     * Neurketen zerrenda XML fitxategi batean gordetzen du.
+     * Eraikitzailea: XML fitxategia ez bada existitzen, hutsik sortzen du.
      *
-     * @param neurketak gorde beharreko neurketak
      * @param fitxategia XML fitxategiaren bidea
-     * @throws Exception fitxategia idaztean edo XMLa sortzean errorea gertatzen bada
      */
-    public void gorde(List<Neurketa> neurketak, String fitxategia)
-            throws Exception {
-
-        // JAXB prestatzen da DatuMultzoa klasea XML bihurtzeko.
-        JAXBContext testuingurua =
-                JAXBContext.newInstance(DatuMultzoa.class);
-
-        Marshaller marshaller =
-                testuingurua.createMarshaller();
-
-        // XMLa formatu irakurgarrian sortzen du.
-        marshaller.setProperty(
-                Marshaller.JAXB_FORMATTED_OUTPUT,
-                true
-        );
-
-        // Neurketak XMLaren erro-elementuan biltzen dira.
-        DatuMultzoa datuak = new DatuMultzoa();
-        datuak.setNeurketak(neurketak);
-
-        // XML fitxategia sortzen du.
-        marshaller.marshal(
-                datuak,
-                new File(fitxategia)
-        );
+    public xmlKudeatzailea(String fitxategia) {
+        this.fitxategia = fitxategia;
+        sortuEzBadago();
     }
 
     /**
-     * XML fitxategi bateko neurketak irakurtzen ditu.
+     * XML fitxategia existitzen ez bada, neurketarik gabeko fitxategi bat sortzen du.
      */
-    public List<Neurketa> irakurri(String fitxategia)
-            throws Exception {
+    private void sortuEzBadago() {
+        File f = new File(fitxategia);
 
-        // JAXB prestatzen da XMLa Java objektu bihurtzeko.
+        if (!f.exists()) {
+            try {
+                // Karpeta gurasoa existitzen ez bada, sortu
+                File gurasoa = f.getParentFile();
+                if (gurasoa != null && !gurasoa.exists()) {
+                    gurasoa.mkdirs();
+                }
+
+                gorde(new ArrayList<>());
+            } catch (Exception e) {
+                throw new RuntimeException(
+                        "Ezin izan da XML fitxategia sortu: " + fitxategia, e);
+            }
+        }
+    }
+
+    /**
+     * Neurketen zerrenda XML fitxategian gordetzen du.
+     */
+    public void gorde(List<Neurketa> neurketak) throws Exception {
+
         JAXBContext testuingurua =
                 JAXBContext.newInstance(DatuMultzoa.class);
 
-        Unmarshaller unmarshaller =
-                testuingurua.createUnmarshaller();
+        Marshaller marshaller = testuingurua.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-        // XML fitxategia irakurri eta DatuMultzoa objektua sortzen du.
+        DatuMultzoa datuak = new DatuMultzoa();
+        datuak.setNeurketak(neurketak);
+
+        marshaller.marshal(datuak, new File(fitxategia));
+    }
+
+    /**
+     * XML fitxategiko neurketak irakurtzen ditu.
+     */
+    public List<Neurketa> irakurri() throws Exception {
+
+        JAXBContext testuingurua =
+                JAXBContext.newInstance(DatuMultzoa.class);
+
+        Unmarshaller unmarshaller = testuingurua.createUnmarshaller();
+
         DatuMultzoa datuak =
-                (DatuMultzoa) unmarshaller.unmarshal(
-                        new File(fitxategia)
-                );
+                (DatuMultzoa) unmarshaller.unmarshal(new File(fitxategia));
 
-        // Irakurritako neurketen zerrenda itzultzen du.
         return datuak.getNeurketak();
     }
 }
