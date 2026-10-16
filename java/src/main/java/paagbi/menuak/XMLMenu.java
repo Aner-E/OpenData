@@ -51,6 +51,7 @@ public class XMLMenu {
             switch (aukera) {
                 case 1:
                     estazioaBilatu();
+                    
                     break;
 
                 case 2:

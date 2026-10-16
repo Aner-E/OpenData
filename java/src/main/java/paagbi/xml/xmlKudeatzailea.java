@@ -31,6 +31,7 @@ public class xmlKudeatzailea {
     private void sortuEzBadago() {
         File f = new File(fitxategia);
 
+
         if (!f.exists()) {
             try {
                 // Karpeta gurasoa existitzen ez bada, sortu
