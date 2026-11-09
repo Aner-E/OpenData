@@ -1,8 +1,10 @@
+import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
 import paagbi.csv.CsvIrakurlea;
 import paagbi.json.CsvJsonSortzailea;
+import paagbi.json.JsonIrakurlea;
 import paagbi.menuak.CSVMenu;
 import paagbi.menuak.JsonMenu;
 import paagbi.menuak.XMLMenu;
@@ -60,15 +62,9 @@ public class Main {
                     }
 
                     case 3: {
-                        // JSON fitxategia sortzen du.
-                        jsonSortzailea.sortu();
-
-                        // CSV fitxategiko neurketak irakurtzen ditu.
-                        List<Neurketa> neurketak = csv.irakurri();
-
-                        // Neurketak JSON menuari pasatzen dizkio.
+                        if (!new File("calidad-aire.json").exists()) jsonSortzailea.sortu();
+                        List<Neurketa> neurketak = new JsonIrakurlea("calidad-aire.json").irakurri();
                         new JsonMenu(neurketak).erakutsi();
-                        break;
                     }
 
                     case 0:
