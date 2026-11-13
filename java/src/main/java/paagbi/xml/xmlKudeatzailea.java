@@ -65,7 +65,9 @@ public class xmlKudeatzailea {
 
         marshaller.marshal(datuak, new File(fitxategia));
     }
-
+    public String getBidea() {
+        return new File(fitxategia).getAbsolutePath();
+    }
     /**
      * XML fitxategiko neurketak irakurtzen ditu.
      */

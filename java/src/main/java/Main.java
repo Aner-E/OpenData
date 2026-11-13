@@ -7,7 +7,6 @@ import paagbi.json.CsvJsonSortzailea;
 import paagbi.json.JsonIrakurlea;
 import paagbi.menuak.CSVMenu;
 import paagbi.menuak.JsonMenu;
-import paagbi.menuak.XMLMenu;
 import paagbi.modeloa.Neurketa;
 import paagbi.xml.xmlKudeatzailea;
 
@@ -57,8 +56,13 @@ public class Main {
                     case 2: {
                         // XML fitxategiko neurketak irakurri eta menuari pasatzen zaizkio.
                         List<Neurketa> neurketak = xml.irakurri();
-                        new XMLMenu(neurketak).erakutsi();
-                        break;
+
+                        if (neurketak.isEmpty()) {
+                            neurketak = csv.irakurri();
+                        } else { 
+                            xml.gorde(neurketak);
+                            System.out.println(neurketak.size() + "neurketa XML-ra gorde da: " + xml.getBidea());
+                        }
                     }
 
                     case 3: {
