@@ -1,5 +1,6 @@
 package paagbi.xml;
 
+import paagbi.modeloa.EgunekoDatu;
 import paagbi.modeloa.Neurketa;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
@@ -79,5 +80,24 @@ public class xmlKudeatzailea {
                 (DatuMultzoa) unmarshaller.unmarshal(new File(fitxategia));
 
         return datuak.getNeurketak();
+    }
+    public boolean balioaExistitzenDa(String balioa) throws Exception {
+        if (balioa == null || balioa.trim().isEmpty()) {
+            return false;
+        }
+
+        String bilatua = balioa.trim();
+
+        for (Neurketa n: irakurri()) {
+            if (n.getDatuak() == null) {
+                continue;
+            }
+            for (EgunekoDatu d: n.getDatuak()) {
+                if (d.getBalioa() != null && d.getBalioa().trim().equalsIgnoreCase(bilatua)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
